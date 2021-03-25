@@ -1,0 +1,227 @@
+{% extends "layout.html" %}
+{% block content %}
+      <div id="game-settings" class="container">
+        <form>
+          <div class="form-group new-player-fg">
+            <label id="enter-new-player" for="new-player-name" style="padding: 5px;"><u>Create new player</u></label>
+            <input type="text" class="form-control" id="new-player-name" placeholder="name" style="max-width: 40%; display:none;">
+            <button type="button" class="btn-primary btn" id="submit-new-player" style="display: none;">Add player.</button>
+          </div>
+          <div class="form-group">
+              <h1>Wer ist Spieler 1?</h1>
+              <fieldset>
+              {% for player in players %}
+                <input type="radio" id="{{ player.playerId }}" name="player1" value="{{ player.name }}">
+                <label for = {{ player.playerId }}>{{ player.name }}</label>
+              {% endfor %}  
+              </fieldset>
+            </div>
+        </form>
+        <form>
+          <div class="form-group">
+            <h1>Wer ist Spieler 2?</h1>
+            <fieldset>
+            {% for player in players %}
+              <input type="radio" id="{{ player.playerId }}" name="player2" value="{{ player.name }}">
+              <label for = {{ player.playerId }}>{{ player.name }}</label>
+            {% endfor %}  
+            </fieldset>
+            <button type="button" id="select-players" class="btn btn-primary">Game on!</button>
+          </div>
+        </form>
+        </div>
+        <div class="container" id ="game_div_desktop" style="display: none;">
+          <div class="row">
+            <div class="col-md-6 left-side">
+              <div class="player-name">
+                <h2>El Gran caero</h2>
+              </div>
+            </div>
+            <div class="col-md-6 right-side">
+              <div class="player-name">
+                <h2>El Gran caero</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6  left-side">
+              <div class="col-md6">
+                <div class="player-img-div">
+                  <img class="img-fluid img-thumbnail player-img" style="max-width: 50%;">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 right-side">
+              <div class="player-img-div">
+                <img class="img-fluid img-thumbnail player-img" style="max-width: 50%;">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6  left-side">
+              <div class="col-md-6 match-stats">
+                <h3>3-dart average:</h3>
+                <h3 class="match-average"></h3>
+              </div>
+              <div class="col-md-6 match-stats">
+                <h3>darts thrown: </h3> 
+                <h3 class="match-num-darts"></h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 right-side">
+                <div class="col-md-6 match-stats">
+                  <h3>3-dart average:</h3>
+                  <h3 class="match-average"></h3>
+                </div>
+                <div class="col-md-6 match-stats">
+                  <h3>darts thrown: </h3> 
+                  <h3 class="match-num-darts"></h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 left-side">
+                <div class="col-md-6">
+                  <h2>Current Score</h2>
+                  <ul class="list-group" id="pl1_score" style="list-style: none;">
+                    <li class="list-group_item score-item">501</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h2>Last Score</h2>
+                  <ul class="list-group" id="pl1_last_score" style="list-style: none;">
+                  </ul>
+                </div>
+              </div>
+            
+              <div class="col-md-6 right-side">
+                <div class="col-md-6">
+                  <h2>Current Score</h2>
+                  <ul class="list-group" id="pl2_score" style="list-style: none;">
+                    <li class="list-group_item score-item">501</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h2>Last Score</h2>
+                  <ul class="list-group" id="pl2_last_score" style="list-style: none;">
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6  left-side">                
+                  <div class="form-group">
+                    <label for="user-score">Enter Score</label>
+                    <input type="number" class="form-control user-score-input" id="user-score-1" placeholder="0">
+                  </div>
+                  <button class="btn btn-primary delete-score" type="button">Delete last score</button>  
+              </div>
+              <div class="col-md-6 right-side">
+                <div class="form-group">
+                  <label for="user-score">Enter Score</label>
+                  <input type="number" class="form-control user-score-input" id="user-score-2" placeholder="0">
+                  
+                </div>
+                <button class="btn btn-primary delete-score" type="button">Delete last score</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container" id ="game_div_mobile" style="display: none;">
+          <div class="row">
+            <div class="col-md-6 left-side">
+              <div class="player-name">
+                <h2>Testo</h2>
+              </div>
+            </div>
+            <div class="col-md-6 right-side">
+              <div class="player-img-div">
+                <img class="img-fluid img-thumbnail player-img" style="max-width: 50%;">
+              </div>
+            </div>
+          <div class="row">
+            <div class="col-md-6  left-side">
+              <div class="col-md6">
+                
+              </div>
+            </div>
+            <div class="col-md-6 right-side">
+              <div class="player-img-div">
+                <img class="img-fluid img-thumbnail player-img" style="max-width: 50%;">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6  left-side">
+              <div class="col-md-6 match-stats">
+                <h3>3-dart average:</h3>
+                <h3 class="match-average"></h3>
+              </div>
+              <div class="col-md-6 match-stats">
+                <h3>darts thrown: </h3> 
+                <h3 class="match-num-darts"></h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 right-side">
+                <div class="col-md-6 match-stats">
+                  <h3>3-dart average:</h3>
+                  <h3 class="match-average"></h3>
+                </div>
+                <div class="col-md-6 match-stats">
+                  <h3>darts thrown: </h3> 
+                  <h3 class="match-num-darts"></h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 left-side">
+                <div class="col-md-6">
+                  <h2>Current Score</h2>
+                  <ul class="list-group" id="pl1_score" style="list-style: none;">
+                    <li class="list-group_item score-item">501</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h2>Last Score</h2>
+                  <ul class="list-group" id="pl1_last_score" style="list-style: none;">
+                  </ul>
+                </div>
+              </div>
+            
+              <div class="col-md-6 right-side">
+                <div class="col-md-6">
+                  <h2>Current Score</h2>
+                  <ul class="list-group" id="pl2_score" style="list-style: none;">
+                    <li class="list-group_item score-item">501</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h2>Last Score</h2>
+                  <ul class="list-group" id="pl2_last_score" style="list-style: none;">
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6  left-side">                
+                  <div class="form-group">
+                    <label for="user-score">Enter Score</label>
+                    <input type="number" class="form-control user-score-input" id="user-score-1" placeholder="0">
+                  </div>
+                  <button class="btn btn-primary delete-score" type="button">Delete last score</button>  
+              </div>
+              <div class="col-md-6 right-side">
+                <div class="form-group">
+                  <label for="user-score">Enter Score</label>
+                  <input type="number" class="form-control user-score-input" id="user-score-2" placeholder="0">
+                  
+                </div>
+                <button class="btn btn-primary delete-score" type="button">Delete last score</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock content %}

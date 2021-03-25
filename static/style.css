@@ -1,0 +1,77 @@
+body {
+    background-color: #F9F5EECF;
+    color: #142B52;
+    font-family: 'Railway', sans-serif ;
+}
+
+
+h3 {
+    font-size: 16px;
+}
+
+.left-side {
+    border-right: 2px solid #142B52;
+}
+
+.right-side {
+    padding-left: 20px;
+}
+
+.new-player-fg {
+    display: flex;
+    justify-content: flex-start;
+    max-height: 30px;
+    margin-bottom: 5px;
+}
+
+.user-score-input {
+    max-width: 50%;
+
+}
+.btn-primary {
+    background-color: #27529C;
+}
+
+.score-item {
+    font-size: x-large;
+}
+
+.player-img-div {
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.player-img {
+    max-height: 250px;
+}
+
+.error-message {
+    color: red;
+    font-size: medium;
+}
+
+.match-stats {
+    display: flex;
+    justify-content: space-between;
+}
+/* 
+div {
+    border: 2px solid black;
+} */
+/* h1 {
+    color:#D8A629;
+    background-color: #27529C
+} */
+
+
+/*
+142B52
+27529C
+9DB8E7
+CEDCF3s
+*/
+
+/*
+Zuerst alles auf Reihen umbauen!!
+.row-eq-height 
+*/

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;500;800&display=swap" rel="stylesheet"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script src="static/jquery.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        <title>Hello</title>
+    </head>
+    <body>
+        <div id = "greeting" class="container">
+            <div class="row" style="display: flex;margin-bottom: 10px;">
+              <div class="col-md-8">
+                <h1>FXMT Darts</h1>
+              </div>
+              <div class="col-md-4">
+                <img class = "img-fluid" src="static/images/game_on.png" style="max-width: 80%;" id="start-image">
+              </div>
+                
+            </div>
+          </div>
+    {% block content %}
+    {% endblock content %}
+    </body>
+    <script src="static/script.js"></script>
+</html>
